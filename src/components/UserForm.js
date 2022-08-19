@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { TextField, Box } from '@mui/material';
 
-import { changeUserName, changeUserEmail, changeAvatar } from '../redux/actions/userActions';
+import { changeUserName, changeUserAge } from '../redux/actions/userActions';
 
 
 const UserForm = () => {
 
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.userReducer);
 
   return (
       <Box mt={4} sx={{
@@ -15,9 +17,8 @@ const UserForm = () => {
         justifyContent: "center",
         gap: 3,
       }}>
-        <TextField label="Username" variant="outlined" onChange={(e) => dispatch(changeUserName(e.target.value))} />
-        <TextField label="Email" variant="outlined" onChange={(e) => dispatch(changeUserEmail(e.target.value))} />
-        <TextField label="Avatar Url" variant="outlined" onChange={(e) => dispatch(changeAvatar(e.target.value))} />
+        <TextField label="Username" variant="outlined" onChange={(e) => dispatch(changeUserName(e.target.value))} defaultValue={user.name} />
+        <TextField label="Age" variant="outlined" onChange={(e) => dispatch(changeUserAge(e.target.value))} defaultValue={user.age} />
       </Box>
   );
 }

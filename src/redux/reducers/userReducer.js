@@ -1,15 +1,12 @@
-const initialState = { name: 'username1', email: 'username1@example.com', avatar: 'https://robohash.org/sdsd' }
+const initialState = { name: 'username1', age: 32 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CHANGEUSERNAME": {
-      return { ...state, name: action.payload }
+      return { ...state, name: action.payload };
     }
-    case "CHANGEUSEREMAIL": {
-      return { ...state, email: action.paylod }
-    }
-    case "CHANGEAVATAR": {
-      return { ...state, avatar: action.paylod }
+    case "CHANGEAGE": {
+      return { ...state, age: action.payload };
     }
     default:
       return state;

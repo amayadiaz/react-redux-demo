@@ -1,14 +1,12 @@
 
 
-import { Card, CardActions, CardContent, Button, Typography, Avatar, Chip, Divider } from '@mui/material';
+import { Card, CardContent, Typography, Chip, Divider } from '@mui/material';
 
 import { useSelector } from 'react-redux';
 
 const UserCard = () => {
 
   const user = useSelector((state) => state.userReducer);
-
-  console.log(user);
 
   return (
     <Card sx={{ width: 300, maxWidth: 345 }}>
@@ -17,16 +15,14 @@ const UserCard = () => {
         flexDirection: "column",
         alignItems: "center"
       }}>
-          <Avatar alt="User Avatar" src={user.avatar} sx={{ width: 120, height: 120, textAlign: 'center' }} />
-          <Typography gutterBottom variant="h5" mt={2}>
-            {user.name}
+          <Typography gutterBottom variant="h6" mt={2}>
+            Username: {user.name}
           </Typography>
-          <Chip label={user.email} />
+          <Typography gutterBottom variant="h6" mt={2}>
+            Age: <Chip label={user.age} size="medium" />
+          </Typography>
       </CardContent>
       <Divider />
-      <CardActions>
-        <Button size="small">Logout</Button>
-      </CardActions>
     </Card>
   );
 }
