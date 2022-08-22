@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { TextField, Box } from '@mui/material';
 
-import { changeUserName, changeUserAge } from '../redux/actions/userActions';
+import { changeUserName, changeUserAge } from '../redux/slices/userSlice';
 
 
 const UserForm = () => {
